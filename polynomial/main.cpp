@@ -5,6 +5,6 @@ int main() {
     Polynomial polynomial1, polynomial2;
     polynomial1.initLink();
     polynomial2.initLink();
-    polynomial1.printPlus(polynomial2);
+    std::cout << polynomial1 + polynomial2;
     return 0;
 }

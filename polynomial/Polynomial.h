@@ -9,14 +9,16 @@ class Polynomial {
 private:
     NumberLink *head{new NumberLink()};
 
-public:
     void createHead(int &exponent);
 
+public:
     NumberLink *initLink();
 
     void initElement(int exponent);
 
-    void printPlus(Polynomial &polynomial);
+    Polynomial operator+(Polynomial &polynomial);
+
+    friend std::ostream &operator<<(std::ostream& os,const Polynomial& polynomial);
 };
 
 

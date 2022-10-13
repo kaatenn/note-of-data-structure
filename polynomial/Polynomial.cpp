@@ -49,7 +49,7 @@ void Polynomial::initElement(int exponent) {
     index->setNext(nullptr);
 }
 
-void Polynomial::printPlus(Polynomial &polynomial) {
+Polynomial Polynomial::operator+(Polynomial &polynomial) {
     NumberLink *index1 = this->head->getNext(), *index2 = polynomial.head->getNext();
     Polynomial result;
     NumberLink *rIndex = result.head;
@@ -83,13 +83,19 @@ void Polynomial::printPlus(Polynomial &polynomial) {
         }
     }
     rIndex->setNext(nullptr);
-    rIndex = result.head->getNext();
+    return result;
+}
+
+ostream &operator<<(ostream &os, const Polynomial &polynomial) {
+    NumberLink *index = polynomial.head;
+    index = index->getNext();
     cout << "f = ";
-    while (rIndex->getNext() != nullptr) {
-        cout << rIndex->getFactor() << " * x ^ " << rIndex->getExponent() << " + ";
-        rIndex = rIndex->getNext();
+    while (index->getNext() != nullptr) {
+        cout << index->getFactor() << " * x ^ " << index->getExponent() << " + ";
+        index = index->getNext();
     }
-    cout << rIndex->getFactor() << " * x ^ " << rIndex->getExponent() << endl;
+    cout << index->getFactor() << " * x ^ " << index->getExponent() << endl;
+    return os;
 }
 
 
