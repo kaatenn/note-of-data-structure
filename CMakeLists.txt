@@ -3,7 +3,13 @@ project(note_of_data_structure)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(note_of_data_structure calculator/main.cpp)
+add_executable(note_of_data_structure matrix/multiple/multiple.cpp matrix/public/Matrix.cpp matrix/public/Matrix.h)
+
+#[[add_executable(note_of_data_structure matrix/transposed/main.cpp matrix/public/Matrix.cpp matrix/public/Matrix.h)]]
+
+#[[add_executable(note_of_data_structure test/test.cpp)]]
+
+#[[add_executable(note_of_data_structure calculator/main.cpp)]]
 
 #[[
 add_executable(note_of_data_structure Josephus/main.cpp)
