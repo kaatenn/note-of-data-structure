@@ -6,6 +6,7 @@ Matrix initMatrix(int k);
 int main() {
     Matrix matrix1 = initMatrix(1), matrix2 = initMatrix(2);
     Matrix result = matrix1 * matrix2;
+    std::cout << "矩阵乘法的结果为：" << std::endl;
     result.showMatrix();
     return 0;
 }

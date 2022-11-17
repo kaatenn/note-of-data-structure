@@ -49,11 +49,11 @@ cmake_ninja_workdir = E$:/JetBrainsWorkplace/CLion/note-of-data-structure/cmake-
 
 build cmake_object_order_depends_target_note_of_data_structure: phony || CMakeFiles/note_of_data_structure.dir
 
-build CMakeFiles/note_of_data_structure.dir/matrix/multiple/multiple.cpp.obj: CXX_COMPILER__note_of_data_structure_Debug E$:/JetBrainsWorkplace/CLion/note-of-data-structure/matrix/multiple/multiple.cpp || cmake_object_order_depends_target_note_of_data_structure
-  DEP_FILE = CMakeFiles\note_of_data_structure.dir\matrix\multiple\multiple.cpp.obj.d
+build CMakeFiles/note_of_data_structure.dir/matrix/transposed/main.cpp.obj: CXX_COMPILER__note_of_data_structure_Debug E$:/JetBrainsWorkplace/CLion/note-of-data-structure/matrix/transposed/main.cpp || cmake_object_order_depends_target_note_of_data_structure
+  DEP_FILE = CMakeFiles\note_of_data_structure.dir\matrix\transposed\main.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\note_of_data_structure.dir
-  OBJECT_FILE_DIR = CMakeFiles\note_of_data_structure.dir\matrix\multiple
+  OBJECT_FILE_DIR = CMakeFiles\note_of_data_structure.dir\matrix\transposed
 
 build CMakeFiles/note_of_data_structure.dir/matrix/public/Matrix.cpp.obj: CXX_COMPILER__note_of_data_structure_Debug E$:/JetBrainsWorkplace/CLion/note-of-data-structure/matrix/public/Matrix.cpp || cmake_object_order_depends_target_note_of_data_structure
   DEP_FILE = CMakeFiles\note_of_data_structure.dir\matrix\public\Matrix.cpp.obj.d
@@ -69,7 +69,7 @@ build CMakeFiles/note_of_data_structure.dir/matrix/public/Matrix.cpp.obj: CXX_CO
 #############################################
 # Link the executable note_of_data_structure.exe
 
-build note_of_data_structure.exe: CXX_EXECUTABLE_LINKER__note_of_data_structure_Debug CMakeFiles/note_of_data_structure.dir/matrix/multiple/multiple.cpp.obj CMakeFiles/note_of_data_structure.dir/matrix/public/Matrix.cpp.obj
+build note_of_data_structure.exe: CXX_EXECUTABLE_LINKER__note_of_data_structure_Debug CMakeFiles/note_of_data_structure.dir/matrix/transposed/main.cpp.obj CMakeFiles/note_of_data_structure.dir/matrix/public/Matrix.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\note_of_data_structure.dir

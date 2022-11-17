@@ -88,16 +88,6 @@ void Matrix::transposed() {
     c = temp;
 }
 
-Matrix &Matrix::operator=(Matrix &matrix) const {
-    matrix.r = r;
-    matrix.c = c;
-    matrix.len = len;
-    for (int i = 0; i < len; ++i) {
-        matrix.e[i] = e[i];
-    }
-    return matrix;
-}
-
 Matrix Matrix::operator*(Matrix &matrix) {
     Matrix result(r, matrix.c);
     int ri[matrix.r];
