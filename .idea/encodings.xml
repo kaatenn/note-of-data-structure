@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/CMakeLists.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Josephus/main.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Orthogonal/OrthogonalList.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Orthogonal/main.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/calculator/main.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/matrix/multiple/multiple.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/matrix/transposed/main.cpp" charset="GBK" />
