@@ -21,15 +21,15 @@ void TreeNode::initTree() {
 }
 
 void TreeNode::inorderTraversal() {
-    auto f = [](TreeNode* p) -> bool {
+    auto f = [](TreeNode *p) -> bool {
         if (!p) {
             return false;
         }
         cout << p->data;
         return true;
     };
-    stack<TreeNode*> stack;
-    TreeNode* p = this;
+    stack<TreeNode *> stack;
+    TreeNode *p = this;
     while (p || !stack.empty()) {
         if (p) {
             stack.push(p);
@@ -54,8 +54,8 @@ void TreeNode::traversalByHierarchy() {
         cout << p->data;
         return true;
     };
-    queue<TreeNode*> queue;
-    TreeNode* p = this;
+    queue<TreeNode *> queue;
+    TreeNode *p = this;
     queue.push(p);
     while (!queue.empty()) {
         p = queue.front();

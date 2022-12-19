@@ -3,7 +3,7 @@ project(note_of_data_structure)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(note_of_data_structure tree/public/TreeNode.cpp tree/public/TreeNode.h tree/main.cpp)
+add_executable(note_of_data_structure tree/public/TreeNode.cpp tree/public/TreeNode.h tree/main.cpp tree/public/ITreeNode.cpp tree/public/ITreeNode.h)
 
 #[[add_executable(note_of_data_structure Orthogonal/OrthogonalList.cpp Orthogonal/OrthogonalList.h Orthogonal/main.cpp)]]
 

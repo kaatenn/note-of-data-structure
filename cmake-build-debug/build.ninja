@@ -61,6 +61,12 @@ build CMakeFiles/note_of_data_structure.dir/tree/main.cpp.obj: CXX_COMPILER__not
   OBJECT_DIR = CMakeFiles\note_of_data_structure.dir
   OBJECT_FILE_DIR = CMakeFiles\note_of_data_structure.dir\tree
 
+build CMakeFiles/note_of_data_structure.dir/tree/public/ITreeNode.cpp.obj: CXX_COMPILER__note_of_data_structure_Debug E$:/JetBrainsWorkplace/CLion/note-of-data-structure/tree/public/ITreeNode.cpp || cmake_object_order_depends_target_note_of_data_structure
+  DEP_FILE = CMakeFiles\note_of_data_structure.dir\tree\public\ITreeNode.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\note_of_data_structure.dir
+  OBJECT_FILE_DIR = CMakeFiles\note_of_data_structure.dir\tree\public
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target note_of_data_structure
@@ -69,7 +75,7 @@ build CMakeFiles/note_of_data_structure.dir/tree/main.cpp.obj: CXX_COMPILER__not
 #############################################
 # Link the executable note_of_data_structure.exe
 
-build note_of_data_structure.exe: CXX_EXECUTABLE_LINKER__note_of_data_structure_Debug CMakeFiles/note_of_data_structure.dir/tree/public/TreeNode.cpp.obj CMakeFiles/note_of_data_structure.dir/tree/main.cpp.obj
+build note_of_data_structure.exe: CXX_EXECUTABLE_LINKER__note_of_data_structure_Debug CMakeFiles/note_of_data_structure.dir/tree/public/TreeNode.cpp.obj CMakeFiles/note_of_data_structure.dir/tree/main.cpp.obj CMakeFiles/note_of_data_structure.dir/tree/public/ITreeNode.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\note_of_data_structure.dir
