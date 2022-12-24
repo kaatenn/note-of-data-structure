@@ -2,8 +2,13 @@ cmake_minimum_required(VERSION 3.23)
 project(note_of_data_structure)
 
 set(CMAKE_CXX_STANDARD 14)
+include_directories(E:/eigen3)
 
+add_executable(note_of_data_structure graph/public/Graph.cpp graph/public/Graph.h graph/main.cpp)
+
+#[[
 add_executable(note_of_data_structure tree/public/TreeNode.cpp tree/public/TreeNode.h tree/main.cpp tree/public/ITreeNode.cpp tree/public/ITreeNode.h)
+]]
 
 #[[add_executable(note_of_data_structure Orthogonal/OrthogonalList.cpp Orthogonal/OrthogonalList.h Orthogonal/main.cpp)]]
 
