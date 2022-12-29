@@ -25,12 +25,33 @@ Graph::Graph(Eigen::Matrix<int, 5, 5> collar, int data[5], int vexNum, Kind kind
     }
 }
 
+Graph::Graph(Eigen::Matrix<int, 6, 6> collar, int vexNum, Kind kind) {
+    this->vexNum = vexNum;
+    this->kind = kind;
+    for (int i = 0; i < 6; ++i) {
+        vertices[i] = VNode(1);
+        ArcNode *pArc;
+        for (int j = 0; j < 6; ++j) {
+            if (collar(i, j) != 0) {
+                if (vertices[i].isSingle()) {
+                    pArc = vertices[i].addArc(new ArcNode(j, collar(i, j)));
+                } else {
+                    pArc = pArc->addArc(new ArcNode(j, collar(i, j)));
+                }
+                if (i <= j || kind == Kind::DIRECTED) {
+                    this->arcNum++;
+                }
+            }
+        }
+    }
+}
+
 void Graph::Kruskal() {
     int count, head, end;
-    int assign[5]; // è¿é€šåˆ†é‡æ ‡è®°
+    int assign[5]; // Á¬Í¨·ÖÁ¿±ê¼Ç
     vector<pair<int, ArcNode *> > minTree;
-    vector<pair<int, ArcNode *> > vecArc; // è¾¹é›†
-    //åˆå§‹åŒ–æ‰€æœ‰è¿é€šåˆ†é‡æ ‡è®°ä¸ºä¸ä¸€æ ·çš„å€¼
+    vector<pair<int, ArcNode *> > vecArc; // ±ß¼¯
+    //³õÊ¼»¯ËùÓĞÁ¬Í¨·ÖÁ¿±ê¼ÇÎª²»Ò»ÑùµÄÖµ
     for (int i = 0; i < 5; ++i) {
         assign[i] = i;
     }
@@ -53,7 +74,7 @@ void Graph::Kruskal() {
         if (assign[head] != assign[end]) {
             minTree.emplace_back(edge);
             count++;
-            for (int & i : assign) {
+            for (int &i: assign) {
                 if (i == assign[end]) {
                     i = assign[head];
                 }
@@ -97,6 +118,77 @@ void Graph::Prim() {
     }
     for (int i = 0; i < 5; ++i) {
         cout << '<' << parents[i] << ", " << i << '>' << endl;
+    }
+}
+
+void Graph::Dijkstra() {
+    int dis[5]{0, MAX_DIS, MAX_DIS, MAX_DIS, MAX_DIS};
+    bool vis[5]{true, false, false, false, false};
+    auto readVis = [](const bool vis[5]) -> bool {
+        for (int i = 0; i < 5; ++i) {
+            if (!vis[i])
+                return false;
+        }
+        return true;
+    };
+    while (!readVis(vis)) {
+        for (int i = 0; i < 5; ++i) {
+            if (vis[i]) {
+                ArcNode *p = vertices[i].getFirstArc();
+                dis[p->getAdjVex()] = min(dis[p->getAdjVex()], dis[i] + p->getInfo());
+                while (p->getNextArc()) {
+                    p = p->getNextArc();
+                    dis[p->getAdjVex()] = min(dis[p->getAdjVex()], dis[i] + p->getInfo());
+                }
+            }
+        }
+        int minDis = MAX_DIS;
+        int minIndex = -1;
+        for (int j = 0; j < 5; ++j) {
+            if (dis[j] < minDis && !vis[j]) {
+                minDis = dis[j];
+                minIndex = j;
+            }
+        }
+        vis[minIndex] = true;
+    }
+    for (int i = 0; i < 5; ++i) {
+        cout << "µ½´ï" << i << "ºÅµãµÄ×î¶Ì¾àÀëÎª£º" << dis[i] << endl;
+    }
+
+}
+
+void Graph::topology() {
+    int count[6]{0, 0, 0, 0, 0, 0};
+    stack<int> emptyVex;
+    for (auto &vertice: vertices) {
+        ArcNode *pArc = vertice.getFirstArc();
+        while (pArc) {
+            count[pArc->getAdjVex()]++;
+            pArc = pArc->getNextArc();
+        }
+    }
+    for (int i = 0; i < 6; ++i) {
+        if (count[i] == 0)
+            emptyVex.push(i);
+    }
+    while (!emptyVex.empty()) {
+        int i = emptyVex.top();
+        emptyVex.pop();
+        cout << i;
+        count[i]--;
+        ArcNode *pArc = vertices[i].getFirstArc();
+        while (pArc) {
+            if (--count[pArc->getAdjVex()] == 0) {
+                emptyVex.push(pArc->getAdjVex());
+            }
+            pArc = pArc->getNextArc();
+        }
+    }
+    for (int i: count) {
+        if (i != -1) {
+            exit(EXIT_FAILURE);
+        }
     }
 }
 

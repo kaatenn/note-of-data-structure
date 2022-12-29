@@ -4,7 +4,7 @@
 
 #ifndef NOTE_OF_DATA_STRUCTURE_GRAPH_H
 #define NOTE_OF_DATA_STRUCTURE_GRAPH_H
-#define MAX_VERTEX_NUM 5
+#define MAX_VERTEX_NUM 6
 #define MAX_DIS 65535
 
 #include "bits/stdc++.h"
@@ -17,7 +17,7 @@ enum class Kind {
     DIRECTED
 };
 
-//è¾¹ç»“ç‚¹
+//±ß½áµã
 class ArcNode {
     int adjVex, info;
     ArcNode *nextArc;
@@ -37,7 +37,7 @@ public:
     int getInfo() { return info; }
 };
 
-//å¤´ç»“ç‚¹
+//Í·½áµã
 typedef class VNode {
     int data;
     ArcNode *firstArc;
@@ -65,9 +65,15 @@ class Graph {
 public:
     Graph(Eigen::Matrix<int, 5, 5> collar, int data[5], int vexNum = 5, Kind kind = Kind::UNDIRECTED);
 
+    Graph(Eigen::Matrix<int, 6, 6> collar, int vexNum = 6, Kind kind = Kind::DIRECTED);
+
+    void topology();
+
     void Kruskal();
 
     void Prim();
+
+    void Dijkstra();
 };
 
 #endif //NOTE_OF_DATA_STRUCTURE_GRAPH_H
